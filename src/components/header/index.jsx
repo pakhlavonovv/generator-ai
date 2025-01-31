@@ -24,7 +24,7 @@ const Header = () => {
       </header>
 
       <div
-        className={`fixed top-0 left-0 h-full bg-gray-800 text-white transition-all duration-300 ${isSidebarOpen ? 'w-[75%] sm:w-[50%] md:w-[40%] lg:w-[30%] xl:w-[20%]' : 'w-0'
+        className={`fixed top-0 left-0 h-full bg-gray-800 text-white transition-all duration-300 ${isSidebarOpen ? 'w-[75%] z-50 sm:w-[50%] md:w-[40%] lg:w-[30%] xl:w-[20%]' : 'w-0'
           } overflow-hidden`}
       >
         <div className="flex justify-end p-4">
