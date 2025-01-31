@@ -3,6 +3,7 @@ import Images from "../../components/images"
 
 const Index = () => {
   return (
+    <div>
     <div className="container flex flex-col gap-2 justify-center pt-8">
       <h1 className="font-bold text-center w-[100%] text-[16px] min-[350px]:text-[18px] min-[450px]:text-[20px] min-[550px]:text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] xl:text-[32px]">Why isn't the picture coming out the way you want it to?
       </h1>
@@ -18,8 +19,9 @@ Guidelines for creating an image prompt
 <Link to={'/'} className="flex items-center justify-center bg-[#28334AFF] w-[180px] md:w-[200px] xl:w-[220px] h-[40px] text-[12px] md:text-[14px] text-white rounded-sm">Understandable, go back</Link>
 <div className="mt-[30px]">
 <h2 className="font-bold text-center w-[100%] text-[16px] min-[350px]:text-[18px] min-[450px]:text-[20px] min-[550px]:text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] xl:text-[32px]">Images created by AI</h2>
-<Images/>
 </div>
+    </div>
+<Images/>
     </div>
   )
 }

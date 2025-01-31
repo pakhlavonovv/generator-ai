@@ -1,6 +1,6 @@
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
 import App from '../App';
-import { LazyHome, LazyNotFound, LazyWhy } from "../pages";
+import { LazyHome, LazyContact, LazyNotFound, LazyWhy } from "../pages";
 
 const Index = () => {
   const router = createBrowserRouter(
@@ -8,6 +8,7 @@ const Index = () => {
       <Route path="/" element={<App />}>
         <Route index element={<LazyHome />} />
         <Route path="why" element={<LazyWhy />} />
+        <Route path="contact" element={<LazyContact />} />
         <Route path="*" element={<LazyNotFound />} />
       </Route>
     )
