@@ -24,7 +24,7 @@ const Images = () => {
       const imagePromises = imagePaths.map(async (path) => {
         const img = new Image();
         img.src = path;
-        await img.decode(); 
+        await img.decode();
         return path;
       });
 
@@ -37,23 +37,25 @@ const Images = () => {
 
   return (
     <div className="mt-[30px] flex justify-center">
-    {loadedImages.length === 0 ? (
-      <Loading />
-    ) : (
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-1">
-        {loadedImages.map((src, index) => (
-          <img
-            key={index}
-            src={src}
-            className="rounded-sm h-[150px] lg:h-[250px] w-full object-cover"
-            alt={`Image ${index + 1}`}
-          />
-        ))}
-      </div>
-    )}
-  </div>
-  
-  
+      {loadedImages.length === 0 ? (
+        <Loading />
+      ) : (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-1">
+          {loadedImages.map((src, index) => (
+            <img
+              key={index}
+              src={src}
+              className="rounded-sm h-[150px] lg:h-[250px] w-full object-cover"
+              alt={`Image ${index + 1}`}
+              loading="lazy"
+              onError={(e) => {
+                e.target.src = "/images/fallback.jpg"; // Fallback rasm
+              }}
+            />
+          ))}
+        </div>
+      )}
+    </div>
   );
 };
 

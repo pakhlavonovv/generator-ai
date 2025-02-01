@@ -47,7 +47,7 @@ const Index = () => {
     </p>
   </div>
 
-  <form onSubmit={handleSubmit} className="p-8 rounded-md bg-[#669DB3FF] space-y-3 w-full max-w-[500px]">
+  <form onSubmit={handleSubmit} className="p-5 sm:p-6 md:p-7 lg:p-8 rounded-md bg-[#669DB3FF] space-y-3 w-full max-w-[500px]">
     <div>
       <label htmlFor="name" className="block text-[12px] sm:text-[14px] md:text-[16px] font-medium text-white ">
         Name
