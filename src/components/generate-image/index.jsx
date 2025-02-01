@@ -68,7 +68,7 @@ const Generator = () => {
     <section className="container">
       <div className="mt-[30px] min-[450px]:mt-[40px] flex flex-col items-center justify-center gap-2">
         <div className="flex flex-col items-center justify-center">
-          <h1 className="min-[360px]:w-[85%] lg:w-[100%] font-bold text-[16px] min-[360px]:text-[18px] min-[450px]:text-[19px] min-[500px]:text-[21px] sm:text-[23px] md:text-[25px] lg:text-[31px] xl:text-[34px] text-center">
+          <h1 className="min-[360px]:w-[85%] lg:w-[100%] font-bold bg-gradient-to-r from-purple-600 via-red-600 to-gray-600 bg-clip-text text-transparent text-[16px] min-[360px]:text-[19px] min-[450px]:text-[20px] min-[500px]:text-[22px] sm:text-[24px] md:text-[26px] lg:text-[31px] xl:text-[36px] text-center">
             Smart AI Creator – Generate Anything Instantly
           </h1>
           <p className="w-[80%] text-center text-[10px] min-[450px]:text-[12px] md:text-[14px] xl:text-[18px]">

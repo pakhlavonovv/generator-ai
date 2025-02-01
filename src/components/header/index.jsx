@@ -22,16 +22,18 @@ const Header = () => {
   };
   return (
     <>
-      <header className="container flex items-center justify-between">
+      <header className="bg-gradient-to-r from-purple-600 via-red-500 to-blue-500 pb-4">
+        <div className="container flex items-center justify-between">
         <div>
-          <h2 className="cursor-pointer font-bold text-[16px] min-[370px]:text-[17px] sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px]">Image Generator</h2>
+          <h2 className="cursor-pointer text-white font-bold text-[16px] min-[370px]:text-[17px] sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px]">Image Generator</h2>
         </div>
         <div className='flex items-center gap-3'>
-          <span className='hidden md:flex text-[16px] lg:text-[18px]'>Menu</span>
+          <span className='hidden md:flex text-white text-[16px] lg:text-[18px]'>Menu</span>
           <i
-            className="fa-solid fa-bars fa-lg cursor-pointer"
+            className="fa-solid text-white fa-bars fa-lg cursor-pointer"
             onClick={toggleSidebar}
           ></i>
+        </div>
         </div>
       </header>
 
