@@ -81,7 +81,7 @@ const Index = () => {
             <input
               type="text"
               id="name"
-              className="w-full outline-none p-2 border text-[14px] sm:text-[16px] border-gray-300 rounded-md"
+              className="w-full outline-none p-2 border text-[14px] sm:text-[16px] border-gray-600 bg-gray-300 rounded-md"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -98,7 +98,7 @@ const Index = () => {
             <input
               type="email"
               id="email"
-              className="w-full outline-none p-2 border text-[14px] sm:text-[16px] border-gray-300 rounded-md"
+              className="w-full outline-none p-2 border text-[14px] sm:text-[16px] border-gray-600 bg-gray-300 rounded-md"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -114,7 +114,7 @@ const Index = () => {
             </label>
             <textarea
               id="message"
-              className="w-full p-2 resize-none outline-none text-[14px] sm:text-[16px] border border-gray-300 rounded-md"
+              className="w-full p-2 resize-none outline-none text-[14px] sm:text-[16px] border border-gray-600 bg-gray-300 rounded-md"
               rows={4}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
