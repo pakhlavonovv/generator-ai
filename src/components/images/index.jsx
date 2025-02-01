@@ -2,18 +2,18 @@ import { useState, useEffect } from "react";
 import Loading from "../loading";
 
 const imagePaths = [
-  "/images/image-1.webp",
-  "/images/image-2.png",
-  "/images/image-3.webp",
-  "/images/image-4.jpg",
-  "/images/image-5.jpg",
-  "/images/image-6.jpg",
-  "/images/image-7.webp",
-  "/images/image-8.webp",
-  "/images/image-9.webp",
-  "/images/image-10.webp",
-  "/images/image-11.webp",
-  "/images/image-12.png",
+  "https://i.ibb.co/q3hHfj7h/image-1.webp",
+  "https://i.ibb.co/gb2QffQQ/Image2.png",
+  "https://i.ibb.co/8DqJVynv/image-3.webp",
+  "https://i.ibb.co/cSBnCMrd/image-4.jpg",
+  "https://i.ibb.co/0pT8t0dd/image-5.jpg",
+  "https://i.ibb.co/RkFQxvmf/image-6.jpg",
+  "https://i.ibb.co/mCy51jpj/image-7.webp",
+  "https://i.ibb.co/ymhLQyc4/image-8.webp",
+  "https://i.ibb.co/vC9DZ1nf/image-9.webp",
+  "https://i.ibb.co/8g5g7mkF/image-10.webp",
+  "https://i.ibb.co/svbk1527/image-11.webp",
+  "https://i.ibb.co/4w4n61nt/image-12.png",
 ];
 
 const Images = () => {
@@ -49,7 +49,7 @@ const Images = () => {
               alt={`Image ${index + 1}`}
               loading="lazy"
               onError={(e) => {
-                e.target.src = "/images/fallback.jpg"; // Fallback rasm
+                e.target.src = "/images/fallback.jpg";
               }}
             />
           ))}
