@@ -57,32 +57,28 @@ const Index = () => {
   return (
     <div>
       <Header />
-      {/* Contact */}
       <div className="mt-[50px] flex flex-col items-center justify-center gap-4 px-4 md:px-0">
-        <div className="flex flex-col items-center justify-center text-center">
-          <h1 className="font-bold text-[18px] sm:text-[22px] md:text-[24px] lg:text-[28px] xl:text-[32px]">
-            Contact Information
-          </h1>
-          <p className="text-center text-[12px] sm:text-[14px] w-full sm:w-[80%] md:w-[100%]">
-            Your inquiries are important to us. Let us know how we can help.
-          </p>
-        </div>
+
 
         <form
           onSubmit={handleSubmit}
-          className="p-5 sm:p-6 md:p-7 lg:p-8 rounded-md bg-gradient-to-r from-black via-purple-800 to-red-700 space-y-3 w-full max-w-[500px]"
+          className="p-5 sm:p-6 md:p-7 lg:p-8 xl:p-10 rounded-md bg-gradient-to-r from-black via-purple-800 to-red-700 space-y-3 w-full max-w-[500px]"
         >
+          <div className="flex flex-col items-center justify-center text-center">
+          <h1 className="font-bold text-white text-[18px] sm:text-[22px] md:text-[24px] lg:text-[28px]">
+            Contact Information
+          </h1>
+          <p className="text-center text-white text-[12px] sm:text-[14px] w-full sm:w-[80%] md:w-[100%]">
+            Your inquiries are important to us. Let us know how we can help.
+          </p>
+        </div>
           <div>
-            <label
-              htmlFor="name"
-              className="block text-[12px] sm:text-[14px] md:text-[16px] font-medium text-white"
-            >
-              Name
-            </label>
+            
             <input
+            placeholder="Enter your name"
               type="text"
               id="name"
-              className="w-full outline-none p-2 border text-[14px] sm:text-[16px] border-gray-600 bg-gray-300 rounded-md"
+              className="w-full outline-none p-2 border text-[14px] sm:text-[16px] border-gray-300 bg-transparent rounded-md"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -90,16 +86,12 @@ const Index = () => {
           </div>
 
           <div>
-            <label
-              htmlFor="email"
-              className="block text-[12px] sm:text-[14px] md:text-[16px] font-medium text-white"
-            >
-              Email
-            </label>
+           
             <input
+            placeholder="Enter your email"
               type="email"
               id="email"
-              className="w-full outline-none p-2 border text-[14px] sm:text-[16px] border-gray-600 bg-gray-300 rounded-md"
+              className="w-full outline-none p-2 border text-[14px] sm:text-[16px] border-gray-300 bg-transparent rounded-md"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -107,15 +99,11 @@ const Index = () => {
           </div>
 
           <div>
-            <label
-              htmlFor="message"
-              className="block text-[12px] sm:text-[14px] md:text-[16px] font-medium text-white"
-            >
-              Message
-            </label>
+           
             <textarea
+            placeholder="Enter your message"
               id="message"
-              className="w-full p-2 resize-none outline-none text-[14px] sm:text-[16px] border border-gray-600 bg-gray-300 rounded-md"
+              className="w-full p-2 resize-none outline-none text-[14px] sm:text-[16px] border border-gray-300 bg-transparent rounded-md"
               rows={4}
               value={message}
               onChange={(e) => setMessage(e.target.value)}

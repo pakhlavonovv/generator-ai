@@ -1,13 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [selectedModel, setSelectedModel] = useState(localStorage.getItem('selectedModel') || 'dalle-2');
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+  useEffect(() => {
+    const savedModel = localStorage.getItem('selectedModel');
+    if (savedModel) {
+      setSelectedModel(savedModel);
+    }
+  }, []);
 
+  const handleModelChange = (e) => {
+    const model = e.target.value;
+    setSelectedModel(model);
+    localStorage.setItem('selectedModel', model); 
+  };
   return (
     <>
       <header className="container flex items-center justify-between">
@@ -38,9 +50,8 @@ const Header = () => {
         <Link className='text-[14px] sm:text-[16px]' to={'/'}>Home</Link>
           <Link className='text-[14px] sm:text-[16px]' target='_blank' to={'/contact'}>Contact</Link>
           <Link className='text-[14px] sm:text-[16px]' target='_blank' to={'https://t.me/slaydtopbot'}>Telegram bot</Link>
-          <select className="bg-white border-none text-[14px] sm:text-[16px] text-black px-2 w-[80%] h-[30px] rounded-2xl flex items-center justify-center outline-none" defaultValue="dalle-2">
+          <select onChange={handleModelChange} className="bg-white border-none text-[14px] sm:text-[16px] text-black px-2 w-[80%] h-[30px] rounded-2xl flex items-center justify-center outline-none" defaultValue="dalle-2">
           <option className='text-black' value="dalle-2">Dall-e 2</option>
-            <option className='text-black' value="dalle-3">Dall-e 3</option>
           </select>
         </ul>
       </div>
