@@ -8,6 +8,7 @@ const Generator = () => {
   const [selectedModel, setSelectedModel] = useState(localStorage.getItem('selectedModel') || 'dalle-2');
   const [imageUrl, setImageUrl] = useState(null);
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
 
 
   const handleSubmit = (e) => {
@@ -44,6 +45,7 @@ const Generator = () => {
       })
       .catch(error => {
         console.error("Error fetching image:", error);
+        setError(true)
         setLoading(false)
       });
   };
@@ -91,6 +93,7 @@ const Generator = () => {
             <span>{loading ? 'Generating...' : 'Generate Image'}</span>
             <img className="w-[15px] h-[15px] min-[530px]:w-[20px] min-[530px]:h-[20px]" src={StarAiIcon} alt="star icon" />
           </button>
+          {error ? <p className='text-red-600'>Error! Please double-check the entered image and try again.</p> : ''}
         </form>
       </div>
       {isModalOpen && (
@@ -109,7 +112,7 @@ const Generator = () => {
           </div>
         </div>
       )}
-  {/* Download button */}
+      {/* Download button */}
       {imageUrl && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-gradient-to-r from-teal-400 via-purple-500 to-pink-600 flex flex-col items-center justify-center rounded-lg p-6 w-[80%] sm:w-[450px] shadow-lg">
