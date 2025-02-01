@@ -57,6 +57,7 @@ const Index = () => {
   return (
     <div>
       <Header />
+      {/* Contact */}
       <div className="mt-[50px] flex flex-col items-center justify-center gap-4 px-4 md:px-0">
         <div className="flex flex-col items-center justify-center text-center">
           <h1 className="font-bold text-[18px] sm:text-[22px] md:text-[24px] lg:text-[28px] xl:text-[32px]">
