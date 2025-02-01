@@ -109,7 +109,7 @@ const Generator = () => {
           </div>
         </div>
       )}
-
+  {/* Download button */}
       {imageUrl && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-gradient-to-r from-teal-400 via-purple-500 to-pink-600 flex flex-col items-center justify-center rounded-lg p-6 w-[80%] sm:w-[450px] shadow-lg">
