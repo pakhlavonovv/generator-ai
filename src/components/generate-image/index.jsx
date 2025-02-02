@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { saveAs } from 'file-saver';
 import StarAiIcon from '/images/star-ai.png'
+import Loading from '../loading';
 
 const Generator = () => {
   const [prompt, setPrompt] = useState("");
@@ -63,7 +64,34 @@ const Generator = () => {
     localStorage.setItem('selectedModel', model);
   };
 
-
+  
+  const handleDownload = async () => {
+    try {
+      const response = await fetch(imageUrl, { mode: 'no-cors' });
+      if (!response.ok) {
+        throw new Error('Failed to fetch image');
+      }
+  
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+  
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'generated.png';
+      a.click();
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Error downloading image:', error);
+    }
+  };
+  
+  
+  
+  
+  
+  
+  
+  
   return (
     <section className="container">
       <div className="mt-[30px] min-[450px]:mt-[40px] flex flex-col items-center justify-center gap-2">
@@ -117,16 +145,11 @@ const Generator = () => {
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-gradient-to-r from-teal-400 via-purple-500 to-pink-600 flex flex-col items-center justify-center rounded-lg p-6 w-[80%] sm:w-[450px] shadow-lg">
             <h2 className="text-[16px] text-center sm:text-[18px] md:text-[22px] font-semibold text-gray-800">Generated image with quality</h2>
-            <img src={imageUrl} alt="Generated AI Image" className="mt-4 max-w-[100%] max-h-[300px] object-contain rounded-md shadow-2xl" />
+            <img loading={<Loading/>} src={imageUrl} alt="Generated AI Image" className="mt-4 max-w-[100%] max-h-[300px] object-contain rounded-md shadow-2xl" />
             <div className="w-full flex items-center gap-1">
               <button
-                onClick={() => {
-                  const link = document.createElement("a");
-                  link.href = imageUrl;
-                  link.download = "generated-image.png";
-                  link.click();
-                }}
-
+                 onClick={handleDownload}
+                 disabled={loading}
                 className="mt-4 text-[9px] min-[350px]:text-[11px] sm:h-[40px] w-[100%] h-[30px] p-2 sm:text-[12px] md:text-[14px] flex items-center justify-center bg-teal-400 hover:bg-teal-500 text-white rounded-md"
               >
                 Download Image

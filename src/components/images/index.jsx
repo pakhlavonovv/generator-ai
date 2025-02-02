@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Loading from "../loading";
+import LoadingImages from "../loading-images";
 
 const imagePaths = [
   "https://i.ibb.co/q3hHfj7h/image-1.webp",
@@ -36,10 +36,10 @@ const Images = () => {
   }, []);
 
   return (
-    <div className="mt-[30px] flex justify-center">
+    <div className="mt-[30px]">
       {loadedImages.length === 0 ? (
-        <Loading />
-      ) : (
+         <LoadingImages/>
+) : (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-1">
           {loadedImages.map((src, index) => (
             <img
@@ -47,7 +47,7 @@ const Images = () => {
               src={src}
               className="rounded-sm h-[150px] lg:h-[250px] w-full object-cover"
               alt={`Image ${index + 1}`}
-              loading="lazy"
+              loading={<i class="fa-solid fa-image"></i>}
               onError={(e) => {
                 e.target.src = "/images/fallback.jpg";
               }}
