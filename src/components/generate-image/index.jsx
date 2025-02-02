@@ -9,6 +9,7 @@ const Generator = () => {
   const [imageUrl, setImageUrl] = useState(null);
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
+  const [downloadUrl, setDownloadUrl] = useState(null)
 
 
   const handleSubmit = (e) => {
@@ -63,14 +64,40 @@ const Generator = () => {
     localStorage.setItem('selectedModel', model);
   };
 
+  const handleDownload = async () => {
+    setLoading(true);
   
-  const handleDownload = async (imageUrl) => {
-    window.open(`http://generator-ai-six.vercel.app/download?url=${encodeURIComponent(imageUrl)}`, "_blank");
+    const apiKey = import.meta.env.VITE_IMGBB_API_KEY;
+  
+    try {
+      const imageResponse = await fetch(imageUrl);
+      const imageBlob = await imageResponse.blob();  
+  
+      const formData = new FormData();
+      formData.append("image", imageBlob, "generated-image.jpg"); 
+  
+      const apiUrl = `https://api.imgbb.com/1/upload?key=${apiKey}`;
+      
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        body: formData,
+      });
+  
+      const data = await response.json();
+  
+      if (data && data.data && data.data.url) {
+        setDownloadUrl(data.data.url); 
+      }
+    } catch (error) {
+      console.error("Image upload failed:", error);
+      alert("Image upload failed:", error);
+    } finally {
+      setLoading(false);
+    }
   };
   
   
-  
-  
+ 
   return (
     <section className="container">
       <div className="mt-[30px] min-[450px]:mt-[40px] flex flex-col items-center justify-center gap-2">
@@ -127,11 +154,11 @@ const Generator = () => {
             <img loading={<Loading/>} src={imageUrl} alt="Generated AI Image" className="mt-4 max-w-[100%] max-h-[300px] object-contain rounded-md shadow-2xl" />
             <div className="w-full flex items-center gap-1">
               <button
-                 onClick={handleDownload}
+              onClick={handleDownload}
                  disabled={loading}
                 className="mt-4 text-[9px] min-[350px]:text-[11px] sm:h-[40px] w-[100%] h-[30px] p-2 sm:text-[12px] md:text-[14px] flex items-center justify-center bg-teal-400 hover:bg-teal-500 text-white rounded-md"
               >
-                Download Image
+              {loading ? 'Loading...' : 'Download Image'}
               </button>
 
 
