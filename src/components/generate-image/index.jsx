@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { saveAs } from 'file-saver';
 import StarAiIcon from '/images/star-ai.png'
 import Loading from '../loading';
 
@@ -65,29 +64,9 @@ const Generator = () => {
   };
 
   
-  const handleDownload = async () => {
-    try {
-      const response = await fetch(imageUrl, { mode: 'no-cors' });
-      if (!response.ok) {
-        throw new Error('Failed to fetch image');
-      }
-  
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-  
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'generated.png';
-      a.click();
-      window.URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error('Error downloading image:', error);
-    }
+  const handleDownload = async (imageUrl) => {
+    window.open(`http://generator-ai-six.vercel.app/download?url=${encodeURIComponent(imageUrl)}`, "_blank");
   };
-  
-  
-  
-  
   
   
   
